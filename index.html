@@ -11,35 +11,39 @@
 </head>
 
 <body>
-    <h1>nomeDaPlaylist</h1>
-    <img src="images/1.png" alt="capaLofi">
-    <div id="below-cover">
-        <div id="song-info ">
-            <div>nomeDaMusica</div>
-            <div>nomeDoCantor</div>
+    <div class="music-container">
+        <h1 id="playlist-title">nomeDaPlaylist</h1>
+        <img id="cover" src="images/1.png" alt="capaLofi">
+        <div id="below-cover">
+            <div id="song-info ">
+                <div id="song-name">nomeDaMusica</div>
+                <div id="band-name" class="light-color">nomeDaBanda</div>
+            </div>
+            <div id="like" class="button light-color">
+                <i class="bi bi-heart"></i>
+            </div>
         </div>
-        <div id="like" class="button">
-            <i class="bi bi-heart"></i>
+        <div id="progress-bar">
+            <div id="current-progress">
+
+            </div>
         </div>
-    </div>
-    <div>
-        <p>barraDeProgresso</p>
-    </div>
-    <div id="button-container">
-        <div id="shuffle" class="button">
-            <i class="bi bi-shuffle"></i>
-        </div>
-        <div id="previous" class="button button-navigate">
-            <i class="bi bi-skip-start-fill"></i>
-        </div>
-        <div id="play" class="button button-biggest">
-            <i class="bi bi-play-circle-fill"></i>
-        </div>
-        <div id="next" class="button button-navigate">
-            <i class="bi bi-skip-end-fill"></i>
-        </div>
-        <div id="repeat" class="button">
-            <i class="bi bi-repeat"></i>
+        <div id="button-container">
+            <div id="shuffle" class="button">
+                <i class="bi bi-shuffle"></i>
+            </div>
+            <div id="previous" class="button button-navigate">
+                <i class="bi bi-skip-start-fill"></i>
+            </div>
+            <div id="play" class="button button-biggest">
+                <i class="bi bi-play-circle-fill"></i>
+            </div>
+            <div id="next" class="button button-navigate">
+                <i class="bi bi-skip-end-fill"></i>
+            </div>
+            <div id="repeat" class="button">
+                <i class="bi bi-repeat"></i>
+            </div>
         </div>
     </div>
 </body>
