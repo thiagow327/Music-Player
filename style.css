@@ -54,6 +54,12 @@ body {
     border-radius: inherit;
 }
 
+button {
+    background-color: inherit;
+    color: inherit;
+    border: none;
+}
+
 #button-container {
     display: flex;
     flex-direction: row;

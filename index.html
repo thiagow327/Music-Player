@@ -13,15 +13,16 @@
 <body>
     <div class="music-container">
         <h1 id="playlist-title">nomeDaPlaylist</h1>
-        <img id="cover" src="images/1.png" alt="capaLofi">
+        <img id="cover" src="/images/1.png" alt="capaLofi">
+        <audio id="audio" src="/music/Lofi and Coffee - Jon J. Morin.mp3"></audio>
         <div id="below-cover">
             <div id="song-info ">
                 <div id="song-name">nomeDaMusica</div>
                 <div id="band-name" class="light-color">nomeDaBanda</div>
             </div>
-            <div id="like" class="button light-color">
+            <button id="like" class="button light-color">
                 <i class="bi bi-heart"></i>
-            </div>
+            </button>
         </div>
         <div id="progress-bar">
             <div id="current-progress">
@@ -29,23 +30,24 @@
             </div>
         </div>
         <div id="button-container">
-            <div id="shuffle" class="button">
+            <button id="shuffle" class="button">
                 <i class="bi bi-shuffle"></i>
-            </div>
-            <div id="previous" class="button button-navigate">
+            </button>
+            <button id="previous" class="button button-navigate">
                 <i class="bi bi-skip-start-fill"></i>
-            </div>
-            <div id="play" class="button button-biggest">
+            </button>
+            <button id="play" class="button button-biggest">
                 <i class="bi bi-play-circle-fill"></i>
-            </div>
-            <div id="next" class="button button-navigate">
+            </button>
+            <button id="next" class="button button-navigate">
                 <i class="bi bi-skip-end-fill"></i>
-            </div>
-            <div id="repeat" class="button">
+            </button>
+            <button id="repeat" class="button">
                 <i class="bi bi-repeat"></i>
-            </div>
+            </button>
         </div>
     </div>
+    <script src="/script.js"></script>
 </body>
 
 </html>
