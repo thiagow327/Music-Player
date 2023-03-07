@@ -1,10 +1,13 @@
-const song = document.getElementById("audio");
-const cover = document.getElementById("cover");
 const songName = document.getElementById("song-name");
 const bandName = document.getElementById("band-name");
+const song = document.getElementById("audio");
+const cover = document.getElementById("cover");
 const play = document.getElementById("play");
 const next = document.getElementById("next");
 const previous = document.getElementById("previous");
+const currentProgress = document.getElementById("current-progress");
+const progressContainer = document.getElementById("progress-container");
+
 
 const lofi = {
   songName: "Lofi and Coffee",
@@ -21,23 +24,22 @@ const rock = {
   file: "Rock N Roll",
   artist: "Shadow",
 };
-
 let isPlaying = false;
 const playlist = [lofi, jazz, rock];
 let index = 0;
 
 function playSong() {
-  isPlaying = true;
   play.querySelector(".bi").classList.remove("bi-play-circle-fill");
   play.querySelector(".bi").classList.add("bi-pause-circle-fill");
   song.play();
+  isPlaying = true;
 }
 
 function pauseSong() {
-  isPlaying = false;
   play.querySelector(".bi").classList.remove("bi-pause-circle-fill");
   play.querySelector(".bi").classList.add("bi-play-circle-fill");
   song.pause();
+  isPlaying = false;
 }
 
 function playPauseDecider() {
@@ -75,9 +77,23 @@ function nextSong() {
   playSong();
 }
 
+function updateProgressBar() {
+  const barwidth = (song.currentTime / song.duration) * 100;
+  currentProgress.style.setProperty('--progress', `${barwidth}%`);
+}
+
+function jumpTo(event) {
+  const widht = progressContainer.clientWidth;
+  const clickPosition = event.offsetX;
+  const jumpToTime = (clickPosition / widht) * song.duration;
+  song.currentTime = jumpToTime;
+}
+
 initializeSong();
 
 
 play.addEventListener("click", playPauseDecider);
 previous.addEventListener("click", previousSong);
 next.addEventListener("click", nextSong);
+song.addEventListener("timeupdate", updateProgressBar);
+progressContainer.addEventListener("click", jumpTo);
