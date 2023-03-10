@@ -1,17 +1,17 @@
-const songName = document.getElementById("song-name");
-const bandName = document.getElementById("band-name");
 const song = document.getElementById("audio");
 const cover = document.getElementById("cover");
-const play = document.getElementById("play");
-const next = document.getElementById("next");
-const previous = document.getElementById("previous");
+const songName = document.getElementById("song-name");
+const bandName = document.getElementById("band-name");
 const likeButton = document.getElementById("like");
 const currentProgress = document.getElementById("current-progress");
 const progressContainer = document.getElementById("progress-container");
-const shuffleButton = document.getElementById("shuffle");
-const repeatButton = document.getElementById("repeat");
 const songTime = document.getElementById('song-time');
 const totalTime = document.getElementById('total-time');
+const shuffleButton = document.getElementById("shuffle");
+const previous = document.getElementById("previous");
+const play = document.getElementById("play");
+const next = document.getElementById("next");
+const repeatButton = document.getElementById("repeat");
 
 const lofi = {
   songName: "Lofi and Coffee",
@@ -23,7 +23,7 @@ const jazz = {
   songName: "F. Juice",
   file: "F. Juice",
   artist: "Jazzfixie",
-  liked: true,
+  liked: false,
 };
 const rock = {
   songName: "Rock N Roll",
@@ -35,7 +35,7 @@ const rock = {
 let isPlaying = false;
 let isShuffled = false;
 let repeatOn = false;
-const originalPlaylist = [lofi, jazz, rock];
+const originalPlaylist = JSON.parse(localStorage.getItem('playlist')) ?? [lofi, jazz, rock]; // if playlist is null, use the default playlist
 let sortedPlaylist = [...originalPlaylist];
 let index = 0;
 
@@ -62,7 +62,7 @@ function playPauseDecider() {
 }
 
 function likeButtonRender() {
-  if(sortedPlaylist[index].liked === true) {
+  if (sortedPlaylist[index].liked === true) {
     likeButton.querySelector('.bi').classList.remove('bi-heart');
     likeButton.querySelector('.bi').classList.add('bi-heart-fill');
     likeButton.classList.add('button-active');
@@ -171,12 +171,13 @@ function updateTotalTime() {
 }
 
 function likeButtonClicked() {
-  if(sortedPlaylist[index].liked === false) {
+  if (sortedPlaylist[index].liked === false) {
     sortedPlaylist[index].liked = true;
   } else {
     sortedPlaylist[index].liked = false;
   }
   likeButtonRender();
+  localStorage.setItem('playlist', JSON.stringify(originalPlaylist));
 }
 
 initializeSong();
